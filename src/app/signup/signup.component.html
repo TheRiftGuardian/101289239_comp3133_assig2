@@ -1,0 +1,41 @@
+<h1>Sign Up</h1>
+<div class="alignment">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <mat-card class="example-card">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field><br />
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstname">
+      </mat-form-field><br />
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastname">
+      </mat-form-field><br />
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field><br />
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field><br />
+      <mat-form-field>
+        <mat-label>Account Type</mat-label>
+        <select matNativeControl formControlName="type">
+          <option value="admin">Admin</option>
+          <option value="customer">Customer</option>
+        </select>
+      </mat-form-field><br />
+      <mat-card-actions fxLayoutAlign="center center" fxLayout="column">
+        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+      </mat-card-actions>
+    </mat-card>
+  </form></div>

@@ -1,0 +1,39 @@
+<h1>Listing {{listingId}}'s Details</h1>
+<div class="alignment">
+<mat-card *ngIf="listingDetails" class="example-card">
+    <mat-card-header>
+        <mat-card-title>{{listingDetails[0].listing_title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Listing ID: {{listingDetails[0].listing_id}}</p>
+        <p>Description: {{listingDetails[0].description}}</p>
+        <p>Street: {{listingDetails[0].street}}</p>
+        <p>City: {{listingDetails[0].city}}</p>
+        <p>Postal Code: {{listingDetails[0].postal_code}}</p>
+        <p>Price: ${{listingDetails[0].price}}</p>
+        <p>Email: {{listingDetails[0].email}}</p>
+        <p>Username: {{listingDetails[0].username}}</p>
+    </mat-card-content>
+</mat-card>
+
+<h1>Booking Listing {{listingId}}</h1>
+<form [formGroup]="bookListingForm" (ngSubmit)="onSubmit()">
+    <mat-card class="example-card">
+          <mat-form-field appearance="fill">
+            <mat-label>Booking ID</mat-label>
+            <input matInput formControlName="booking_id">
+          </mat-form-field><br/>
+          <mat-form-field appearance="fill">
+            <mat-label>Booking Start Date</mat-label>
+            <input matInput formControlName="booking_start" type="date">
+          </mat-form-field><br/>
+          <mat-form-field appearance="fill">
+            <mat-label>Booking End Date</mat-label>
+            <input matInput formControlName="booking_end" type="date">
+          </mat-form-field><br/>
+          <mat-card-actions fxLayoutAlign="center center" fxLayout="column">
+            <button mat-raised-button color="primary" type="submit">Create Booking</button>
+          </mat-card-actions>
+    </mat-card>
+</form>
+</div>

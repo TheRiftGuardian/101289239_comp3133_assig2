@@ -1,0 +1,19 @@
+<div class="navbar">
+    <div>
+      <a routerLink="/">GraphQL Angular App</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/browse">Search Listings</a></li>
+
+
+        <li *ngIf="loggedIn" ><a routerLink="/bookings">View Bookings</a></li>
+        <li *ngIf="admin"><a  routerLink="/create">Create Listing</a></li>
+
+        <li *ngIf="loggedIn"> <a  mat-button routerLink="/logout">Logout</a></li>
+     <li *ngIf="!loggedIn"><a mat-button routerLink="/login">Log In</a> </li>
+     <li *ngIf="!loggedIn"><a  mat-button routerLink="/signup">Sign Up</a> </li>
+      </ul>
+    </nav>
+  </div>

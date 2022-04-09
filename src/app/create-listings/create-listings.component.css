@@ -1,0 +1,37 @@
+h1 {
+    text-align: center;
+    margin: 2rem;
+    font-size: 25px;
+  }
+
+ mat-card-header {
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  text-decoration: underline;
+}
+
+.mat-form-field {
+    width: 90%;
+}
+
+.alignment {
+    text-align: center;
+    margin: 1rem;
+    border-style: outset;
+}
+
+.padding {
+    padding: 3rem;
+}
+
+.mat-card-content {
+  font-size: 25px;
+}
+
+.mat-card-title {
+  font-size: 30px;
+}
+.mat-card {
+    text-align: center;
+}

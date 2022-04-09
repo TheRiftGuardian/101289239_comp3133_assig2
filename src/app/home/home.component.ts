@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { GraphqlService } from '../services/graphql.service';
+import { HttpHeaders } from '@angular/common/http';
+
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+
+  listings: any;
+  loggedIn: boolean = false;
+  username: any;
+
+  constructor(private router: Router, private db: GraphqlService) { }
+
+  ngOnInit(): void {
+    this.username= localStorage.getItem('username')
+    this.db.getAllListings().subscribe((listings: any) => {
+      this.listings = listings.data.getAdminListings;
+    });
+
+    if(localStorage.getItem('token')){
+      this.loggedIn = true;
+      this.db.getCurrentUser().subscribe((res: any) => {
+        localStorage.setItem('type', res.data?.getCurrentUser.type)
+        console.log(localStorage.getItem('type'))
+      });
+  }
+}
+}
