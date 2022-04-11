@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid) {
       this.db.login(this.loginForm.value).subscribe((res: any) => {
         if(res.data?.login == null){ // error
-          alert("There was an error, username or password incorrect.");
+          alert("Greetings! Username and Password combination doesn't exist! Please try again");
           this.router.navigate(['/login']);
         } else { // successful
           localStorage.setItem('username', this.loginForm.value.username)

@@ -2,26 +2,35 @@
 <h2 *ngIf="!loggedIn">Greetings, Guest!</h2>
 <h1>Listings</h1>
 <div class="alignment">
-<div *ngFor="let listing of listings">
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>{{listing.listing_title}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p>Listing ID: {{listing.listing_id}}</p>
-            <p>Description: {{listing.description}}</p>
-            <p>Street: {{listing.street}}</p>
-            <p>City: {{listing.city}}</p>
-            <p>Postal Code: {{listing.postal_code}}</p>
-            <p>Price: {{listing.price}}</p>
-            <p>Email: {{listing.email}}</p>
-            <p>Username: {{listing.username}}</p>
-        </mat-card-content>
-        <mat-card-actions fxLayoutAlign="center center" fxLayout="column">
-            <button *ngIf="loggedIn" mat-raised-button color="primary" routerLink="/listing-details/{{listing.listing_id}}">Book</button>
-            <button *ngIf="!loggedIn" mat-raised-button color="primary" routerLink="/login">Log In To Book</button>
-        </mat-card-actions>
-    </mat-card>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Listing ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Created By</th>
+                <th>Contact</th>
+                <th></th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let listing of listings">
+                <td>{{listing.listing_id}}</td>
+                <td>{{listing.listing_title}}</td>
+                <td>{{listing.description}}</td>
+                <td>{{listing.street}}, {{listing.city}}, {{listing.postal_code}}</td>
+                <td>{{listing.price}}</td>
+                <td>{{listing.username}}</td>
+                <td>{{listing.email}}</td>
+                <td>
+                  <button *ngIf="loggedIn" mat-raised-button color="primary" routerLink="/listing-details/{{listing.listing_id}}">Book</button>
+                  <button *ngIf="!loggedIn" mat-raised-button color="primary" routerLink="/login">Log In To Book</button>
+                </td>
+              </tr>
+        </tbody>
+      </table>
+    
 <br/>
-</div>
 </div>

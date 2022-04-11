@@ -14,11 +14,6 @@ h1 {
     width: 90%;
 }
 
-.alignment {
-    text-align: center;
-    margin: 1rem;
-    border-style: outset;
-}
 
 .mat-card-content {
   font-size: 25px;
@@ -29,4 +24,57 @@ h1 {
 }
 .mat-card {
     text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem;
+}
+
+h2{
+  text-align: center;
+}
+
+.alignment {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.styled-table {
+width: 100%;
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 20px;
+font-family: sans-serif;
+min-width: 400px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+background-color: #9C28AF;
+color: #ffffff;
+text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+border-bottom: thin solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+border-bottom: 2px solid #9C28AF;
+}
+
+.styled-table tbody tr:hover {
+color: white;
+background-color: #333333;
 }

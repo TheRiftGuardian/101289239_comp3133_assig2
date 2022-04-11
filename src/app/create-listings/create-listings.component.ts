@@ -46,6 +46,26 @@ export class CreateListingsComponent implements OnInit {
 
   onSubmit() {
     if(this.listingForm.valid) {
+
+      if (this.listingForm.value.price < 0)
+      {
+        alert("Price of listing should be 0 or positive!");
+        return
+      }
+
+      if (this.listingForm.value.description.length > 1000)
+      {
+        alert("Description length cannot be more than 1000 characters!");
+        return
+      }
+
+
+      if (!(this.validateEmail(this.listingForm.value.email)))
+      {
+        alert("Email must be in proper email format!");
+        return
+      }
+
       console.log(this.listingForm.value)
       this.db.createListing(this.listingForm.value).subscribe((res: any) => {
         console.log(res.data)
@@ -54,6 +74,12 @@ export class CreateListingsComponent implements OnInit {
         setTimeout(location.reload.bind(location), 500);
       });
     }
+  }
+
+  validateEmail(email: any) 
+  {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
   }
 
 }

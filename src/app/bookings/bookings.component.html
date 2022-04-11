@@ -1,17 +1,23 @@
 <h1>{{username}}'s Bookings</h1>
 <div class="alignment">
-<div *ngFor="let booking of bookings">
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>{{booking.booking_id}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p>Listing ID: {{booking.listing_id}}</p>
-            <p>Booking Date: {{booking.booking_date}}</p>
-            <p>Booking Start: {{booking.booking_start}}</p>
-            <p>Booking End: {{booking.booking_end}}</p>
-            <p>Username: {{booking.username}}</p>
-        </mat-card-content>
-    </mat-card>
-<br>
+<table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Listing ID</th>
+                    <th>Booking Date</th>
+                    <th>Booking Start</th>
+                    <th>Booking End</th>
+                    <th>Username</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let booking of bookings">
+                    <td>{{booking.listing_id}}</td>
+                    <td>{{booking.booking_date}}</td>
+                    <td>{{booking.booking_start}}</td>
+                    <td>{{booking.booking_end}}</td>
+                    <td>{{booking.username}}</td>
+                  </tr>
+            </tbody>
+          </table>
 </div>

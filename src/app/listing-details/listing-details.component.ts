@@ -51,6 +51,7 @@ export class ListingDetailsComponent implements OnInit {
       this.db.createBooking(this.bookListingForm.value).subscribe((res: any) => {
         alert(`Booking ${res.data.createBooking.booking_id} Created`);
         this.router.navigate(['/bookings']);
+        setTimeout(location.reload.bind(location), 500);
       })
     }
   }

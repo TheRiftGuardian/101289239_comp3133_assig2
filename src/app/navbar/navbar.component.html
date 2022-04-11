@@ -11,9 +11,9 @@
         <li *ngIf="loggedIn" ><a routerLink="/bookings">View Bookings</a></li>
         <li *ngIf="admin"><a  routerLink="/create">Create Listing</a></li>
 
-        <li *ngIf="loggedIn"> <a  mat-button routerLink="/logout">Logout</a></li>
-     <li *ngIf="!loggedIn"><a mat-button routerLink="/login">Log In</a> </li>
-     <li *ngIf="!loggedIn"><a  mat-button routerLink="/signup">Sign Up</a> </li>
+        <li class="logout" *ngIf="loggedIn"> <a  mat-button routerLink="/logout">Logout</a></li>
+     <li class="login" *ngIf="!loggedIn"><a mat-button routerLink="/login">Log In</a> </li>
+     <li class="signup" *ngIf="!loggedIn"><a  mat-button routerLink="/signup">Sign Up</a> </li>
       </ul>
     </nav>
   </div>

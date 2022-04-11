@@ -1,20 +1,29 @@
 <h1>Listing {{listingId}}'s Details</h1>
 <div class="alignment">
-<mat-card *ngIf="listingDetails" class="example-card">
-    <mat-card-header>
-        <mat-card-title>{{listingDetails[0].listing_title}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <p>Listing ID: {{listingDetails[0].listing_id}}</p>
-        <p>Description: {{listingDetails[0].description}}</p>
-        <p>Street: {{listingDetails[0].street}}</p>
-        <p>City: {{listingDetails[0].city}}</p>
-        <p>Postal Code: {{listingDetails[0].postal_code}}</p>
-        <p>Price: ${{listingDetails[0].price}}</p>
-        <p>Email: {{listingDetails[0].email}}</p>
-        <p>Username: {{listingDetails[0].username}}</p>
-    </mat-card-content>
-</mat-card>
+  <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Listing ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Price</th>
+            <th>Created By</th>
+            <th>Contact</th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="listingDetails">
+            <td>{{listingDetails[0].listing_id}}</td>
+            <td>{{listingDetails[0].listing_title}}</td>
+            <td>{{listingDetails[0].description}}</td>
+            <td>{{listingDetails[0].street}}, {{listingDetails[0].city}}, {{listingDetails[0].postal_code}}</td>
+            <td>{{listingDetails[0].price}}</td>
+            <td>{{listingDetails[0].username}}</td>
+            <td>{{listingDetails[0].email}}</td>
+          </tr>
+    </tbody>
+  </table>
 
 <h1>Booking Listing {{listingId}}</h1>
 <form [formGroup]="bookListingForm" (ngSubmit)="onSubmit()">

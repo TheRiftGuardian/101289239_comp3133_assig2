@@ -41,12 +41,31 @@ signupForm = new FormGroup({
 
   onSubmit(){
     if(this.signupForm.valid) {
-      console.log(this.signupForm.value)
+      if (this.signupForm.value.password.length < 6)
+      {
+        alert("Password should have minimum length of 6!");
+        return
+      }
+      if (!(this.validateEmail(this.signupForm.value.email)))
+      {
+        alert("Email must be in proper email format!");
+        return
+      }
+
       this.db.createUser(this.signupForm.value).subscribe((res: any) => {
         alert(`User ${res.data.createUser.username} Created`);
         this.router.navigate(['/login']);
+      }, error => {
+        alert("Greetings! Username already exists!")
+        console.log(error);
       });
     }
   }
+
+   validateEmail(email: any) 
+    {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
 
 }
